@@ -1,0 +1,27 @@
+header.row div {
+    font-size: 24px;
+    text-align: center;
+}
+
+.card {
+    background-color: #ffffff !important;
+
+    /* overflow: hidden */
+    /* height: 150px */
+    flex-basis: 140px;
+    margin-top: 10px;
+}
+
+.holder {
+    overflow: hidden;
+    flex-grow: 0;
+}
+
+.holder img {
+}
+
+.meta {
+    padding-left: 10px;
+    padding-right: 10px;
+    flex-grow: 1;
+}
