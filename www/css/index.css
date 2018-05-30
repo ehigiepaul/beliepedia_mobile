@@ -13,10 +13,11 @@ body {
     margin: 0;
 }
 
-@keyframes intro {
+@keyframes logo{
     from {
-        flex-grow: 10;
+        flex-grow: 1;
     }
+
     to {
         flex-grow: 0;
     }
@@ -25,26 +26,53 @@ body {
 .logo {
     justify-content: center;
     align-items: center;
-    animation: intro 1s ease-in-out;
-    flex-grow: 0;
     padding-top: 30px;
+    animation: logo 2s 2s ease-in-out forwards;
     padding-bottom: 10px;
+    flex-grow: 1;
 }
 
-@keyframes show {
+.logo img:nth-child(2) {
+    animation: opacity 1s 3s ease-in-out reverse forwards;
+}
+
+@keyframes opacity{
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
 }
 
-@keyframes left {
+@keyframes left{
     from {
-        left: -300px;
+        transform: translateX(-300px);
     }
+
     to {
-        left: 0;
+        transform: translateX(0px);
     }
+}
+
+@keyframes right{
+    from {
+        transform: translateX(300px);
+    }
+
+    to {
+        transform: translateX(0px);
+    }
+}
+
+.main {
+    overflow: hidden;
+    flex-grow: 0;
+    flex-basis: 0px;
+    animation: opacity 1s 3s ease-in-out both;
+}
+
+.main > div:nth-child(1) {
+    animation: left 1s 3s ease-in-out both;
 }

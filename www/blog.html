@@ -6,17 +6,12 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<title>New page</title>
-		<link href="css/style.css" rel="stylesheet">
+		<link href="css/blog.css" rel="stylesheet">
 		<link href="css/core.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<div id="app" class="col" style="flex-grow: 1;">
-			<header class="row" style="height: 40px;
-    align-items: center;
-    background-color: #d82d48 !important;
-    color: #ffffff !important;
-    overflow: hidden;
-    position: static;">
+			<header class="row">
 				<div class="i" style="text-align: center;
     flex-basis: 50px;">menu</div>
 				<div style="text-align: center;
@@ -32,20 +27,60 @@
 					<img src="img/logo2.png" width="18" />
 				</div>
 			</header>
-			<main style="background-color: #494949 !important;
-    padding-top: 0px;
-    flex-grow: 1;">
-				<div class="wrapper col" style="flex-grow: 1;">
-					<div class="card row">
-						<div class="holder">
-							<img src="img/woman-happiness-sunrise-silhouette-40192-825x510.jpeg" />
-						</div>
-						<div class="meta">
-							<h4 class="title">HOW DOES RELIGION PORTRAY WOMEN’S RIGHTS?</h4>
-						</div>
+			<main class="col wrapper">
+				<div class="card row">
+					<div class="imgHolder">
+						<img src="img/woman-happiness-sunrise-silhouette-40192-825x510.jpeg" alt="" />
+					</div>
+					<div class="meta col wrapper">
+						<h2 class="nm">{{title}}</h2>
+						<p class="nm">
+							{{expect}} </p>
 					</div>
 				</div>
 			</main>
+			<div class="menu">
+				<div class="menuSide col">
+					<div class="col" style="align-items: center;
+    flex-grow: 1;">
+						<div style="width: 100px;
+    height: 100px;
+    border-radius: 257px;
+    background-color: #4a8dca !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    object-fit: contain;">
+							<img src="img/logo2.png" alt="" width="40" style="align-self: center;" />
+						</div>
+					</div>
+					<div style="color: #ffffff !important;
+    flex-grow: 9;" class="wrapper">
+						<input type="search" value="SEARCH" style="height: 30px;
+    width: 100%;" />
+						<h4>SETTING</h4>
+						<h4>SHARE</h4>
+						<h4>ABOUT US</h4>
+						<h4>LOGIN</h4>
+					</div>
+					<div class="col" style="align-items: center;
+    flex-grow: 1;">
+						<img src="img/logo2.png" alt="" width="40" />
+						<img src="img/logoname.png" alt="" width="140" />
+					</div>
+					<div style="color: #ffffff !important;
+    font-size: 13px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;">
+						<p class="nm">Powered by AUN</p>
+						<p class="nm">Version 1.2.3</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

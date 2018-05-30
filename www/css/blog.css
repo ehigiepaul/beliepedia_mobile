@@ -1,0 +1,48 @@
+header.row div {
+    font-size: 24px;
+    text-align: center;
+}
+
+header {
+    align-items: center;
+    background-color: #d82d48 !important;
+    color: #ffffff !important;
+    overflow: hidden;
+    position: fixed;
+    min-height: 40px;
+    left: 0;
+    right: 0;
+}
+
+main {
+    position: relative;
+    z-index: -1;
+    top: 50px;
+}
+
+.card {
+    flex-basis: 160px;
+    background-color: #f8f8f8 !important;
+    margin-top: 10px;
+    min-height: 150px;
+}
+
+body {
+    background-color: #545454 !important;
+}
+
+.imgHolder {
+    overflow: hidden;
+    flex-basis: 160px;
+}
+
+.meta {
+    flex-grow: 1;
+    flex-basis: 0px;
+    overflow: hidden;
+}
+
+.imgHolder img {
+    object-fit: fill;
+    height: 100%;
+}

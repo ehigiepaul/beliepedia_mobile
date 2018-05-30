@@ -38,5 +38,88 @@ body {
 }
 
 .i {
-    font-family: 'icomoon';
+    font-family: "icomoon";
+}
+
+@font-face {
+    font-family: barlow;
+    src: url(../font/Barlow-Regular.ttf);
+}
+
+@font-face {
+    font-family: barlowL;
+    src: url(../font/Barlow-Light.ttf);
+}
+
+@font-face {
+    font-family: barlowM;
+    src: url(../font/Barlow-Medium.ttf);
+}
+
+@font-face {
+    font-family: barlowT;
+    src: url(../font/Barlow-Thin.ttf);
+}
+
+@font-face {
+    font-family: barlowEL;
+    src: url(../font/Barlow-ExtraLight.ttf);
+}
+
+@font-face {
+    font-family: barlowB;
+    src: url(../font/Barlow-Bold.ttf);
+}
+
+* {
+    font-family: barlowT;
+}
+
+.regular {
+    font-family: barlow;
+}
+
+.light {
+    font-family: barlowL;
+}
+
+.medium {
+    font-family: barlowM;
+}
+
+.thin {
+    font-family: barlowT;
+}
+
+.extralight {
+    font-family: barlowEL;
+}
+
+.bold {
+    font-family: barlowB;
+}
+
+#app {
+    flex-grow: 1;
+}
+
+.nm {
+    margin: 0;
+}
+
+.menu {
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(75, 75, 75, 0.76) !important;
+}
+
+.menu .menuSide {
+    width: 50vw;
+    height: 100%;
+    background-color: #18242f !important;
+    padding-top: 20px;
 }
