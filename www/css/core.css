@@ -8,7 +8,7 @@ button {
 }
 
 .wrapper {
-    margin: 0 10px;
+    margin: 0 20px;
 }
 
 .col {
@@ -110,16 +110,32 @@ body {
 .menu {
     position: absolute;
     z-index: 10;
-    left: 0;
-    right: 0;
+    background-color: rgba(0, 0, 0, 0.54) !important;
+    width: 100vw;
     top: 0;
     bottom: 0;
-    background-color: rgba(75, 75, 75, 0.76) !important;
+    transition: all 0.3s ease-in-out;
+    display: block;
 }
 
 .menu .menuSide {
     width: 50vw;
-    height: 100%;
     background-color: #18242f !important;
     padding-top: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 0.5s ease-in-out 1s;
+}
+
+.menu.trans {
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    display: none;
+}
+
+.menu .menuSide.trans {
+    transition: all 0.5s ease-in-out 1s;
+    left: -230px;
 }
