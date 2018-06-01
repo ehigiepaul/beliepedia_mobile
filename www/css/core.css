@@ -132,7 +132,7 @@ body {
 .menu.trans {
     transition: all 0.3s ease-in-out;
     opacity: 0;
-    display: none;
+    z-index: -33;
 }
 
 .menu .menuSide.trans {
