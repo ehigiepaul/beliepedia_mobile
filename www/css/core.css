@@ -19,6 +19,7 @@ button {
 .row {
     display: flex;
     flex-direction: row;
+    z-index: 10;
 }
 
 body {
@@ -101,6 +102,7 @@ body {
 
 #app {
     flex-grow: 1;
+    overflow: hidden;
 }
 
 .nm {
@@ -109,7 +111,7 @@ body {
 
 .menu {
     position: absolute;
-    z-index: 10;
+    z-index: 160;
     background-color: rgba(0, 0, 0, 0.54) !important;
     width: 100vw;
     top: 0;
@@ -138,4 +140,8 @@ body {
 .menu .menuSide.trans {
     transition: all 0.5s ease-in-out 1s;
     left: -230px;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }

@@ -16,8 +16,10 @@ header {
 
 main {
     position: relative;
-    z-index: -1;
     top: 50px;
+    overflow-y: scroll;
+    padding-bottom: 60px;
+    z-index: 0;
 }
 
 .card {
