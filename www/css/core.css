@@ -1,6 +1,10 @@
+[v-cloak] {
+    display: none;
+}
+
 .btn {
     font-size: 24px;
-    background-color: rgba(255, 255, 255, 0) !important;
+    background-color: rgba(195, 44, 44, 0) !important;
     border-color: rgba(0, 0, 0, 0);
     color: #ffffff !important;
     padding: 10px 20px;
@@ -101,7 +105,6 @@ body {
 
 #app {
     flex-grow: 1;
-    overflow: hidden;
 }
 
 .nm {
@@ -126,7 +129,7 @@ body {
     position: absolute;
     top: 0;
     bottom: 0;
-    transition: all 0.5s ease-in-out 1s;
+    transition: all 0.5s ease-in-out;
     left: 0;
 }
 
@@ -137,7 +140,7 @@ body {
 }
 
 .menu .menuSide.trans {
-    transition: all 0.5s ease-in-out 1s;
+    transition: all 0.5s ease-in-out;
     left: -300px;
 }
 
@@ -163,4 +166,34 @@ body {
     position: fixed;
     z-index: 140;
     top: 80px;
+}
+
+.meta p {
+    margin-top: 6px;
+}
+
+.postImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.settings {
+    width: 60vw;
+    position: absolute;
+    top: 25vh;
+    background-color: #ffffff !important;
+    z-index: 1;
+    left: 17vw;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.settingClose {
+    transition: all 0.3s ease-in-out;
+    top: -40vh;
+}
+
+.open {
+    height: 100px;
 }

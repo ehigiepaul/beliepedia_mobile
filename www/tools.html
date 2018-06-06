@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		<title>New page</title>
+		<link href="css/blog.css" rel="stylesheet">
+		<link href="css/core.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div id="app" class="col" v-cloak style="background-color: #d1d1d1;">
+			<div class="back" @click='back' style="top: 53px;
+    right: 19px;">
+				<img src="img/back.png" width="42"/>
+			</div>
+			<appheader></appheader>
+			<main v-cloak class="col wrapper" seamless="seamless" data-pgc-edit="main[no_content]">
+				<div class="form col">
+					<h2 style="margin-top: 11px;
+    margin-bottom: 5px;
+    color: #d6137d;" class="bold">Risk Factor Tool</h2>
+					<div style="flex-grow: 23;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #c5c5c5;
+    margin-top: 5px;
+    padding-right: 10px;" v-for="(item,index) in tools" class="row">
+						<div style="flex-grow: 1;">
+							<div class="i" style="font-size: 23px;
+    float: left;
+    padding: 10px;" @click="desc(item.description)">info</div>
+							<div class="placeholder medium">{{item.factor}}
+</div>
+							<div class="description open" style="height: 0px;">
+</div>
+						</div>
+						<div style="flex-basis: 40px;
+    flex-grow: 0;
+    height: 40px;
+    overflow: hidden;
+    text-align: right;">
+							<input type="number" style="height: 40px;
+    width: 40px;
+    font-size: 30px;
+    text-align: center;" placeholder="0" v-model="item.score"/>
+						</div>
+					</div>
+					<button class="btn" style="background-color: #d83434 !important;
+    margin-top: 10px;" @click='score'>Submit</button>
+				</div>
+			</main>
+		</div>
+		<script src="./js/vue.js"></script>
+		<script src="./js/core.js"></script>
+		<script>
+		new Vue({
+			el: '#app',
+			data() {
+				return {
+					tools: [{
+							factor: 'Antisocial Tendencies/ Deviant Behaviors',
+							description: 'Evidence of disruptive acts characterized by covert and overt hostility and intentional and micro aggressions toward others (particularly those that look different or hold different religious or political views; those that are weaker; those that are from a different ethnic group.',
+							score: null
+						},
+						{
+							factor: 'Weak Parental Supervision',
+							description: ' Evidence of family dysfunction, juvenile delinquency, conflicts within families, lack of parent/child attachment, instability, poor home life, consistent indiscipline. Parenting style influences the well-being of a child, and research suggests that when parenting supervision is poor, children are at risk for developing behavioural problems (Cassel & Bernstein, 2006, P.145). ',
+							score: null
+						},
+						{
+							factor: 'Influence of Radical Peers',
+							description: 'Evidence of associations with radicalized peers. Peer influences have been alternately blamed for some of the more problematic aspects of adolescent behavior and radicalization.   ',
+							score: null
+						},
+						{
+							factor: 'Religious Extremism (Alarming Behaviors)',
+							description: 'These are faith-based actions that are deliberately aimed at causing to other people that hold different religious beliefs. It includes membership in religious movements that profess violence; it also includes involvement in routine asceticism that is unreasonable and extreme enough to cause pain and medical concern.  This can also include physical or verbal assaults on people that advocate religious tolerance, multiculturalism and inclusiveness. Their actions are derived from their belief that their own religion provides the supreme guidance over social life and should supersede secular law or concepts of human rights and basic decency. ',
+							score: null
+						},
+						{
+							factor: 'Critical Life Events',
+							description: "These are significant life events or experiences that lead to such an intense and profound stress that it disrupt an individual's usual living condition.  It can contribute to the development or aggravatioin of an existing psychological disorder.  A significant life event could be a divorce, death of  a loved one, losing a job, etc.",
+							score: null
+						},
+						{
+							factor: 'Impuslive Risk Taking',
+							description: "A tendency to take high risks without reason.  This could be impulsive sensation-seeking, aggression/hostility behaviors.  Heavy drinking and use of illegal drugs can inspire impulsive risk taking, hence can be used as evidence for this risk factor.",
+							score: null
+						},
+						{
+							factor: 'Social Vulnerability',
+							description: "This refers to the inability of people or families to withstand the impacts of adverse social conditions that they are exposed to.  It is the incapacity to absorb social shocks or strains.  Such strains could be poverty, illness, disasters, etc.  Failure of government to provide basic amenities can increase social vulnerability, but some people/families are more vulnerable than others. This risk factor admits evidence of such strains.",
+							score: null
+						},
+						{
+							factor: 'Religious Extremism (Concerning Factors)',
+							description: "Religious extremism (concerning factors) refers to evidence of behaviours that show evidence of religious extremism, that are not necessarily violent in nature.  This could be an interpretation of faith in a way that causes the person to show hatred, prejudice or bigotry towards other people with a different faith or different lifestyle choice. ",
+							score: null
+						},
+						{
+							factor: 'Family Radicalization',
+							description: "There are many cases of terrorist recruiters mobilizing their own siblings, spouses and family members (including parents) for violent extremist causes.   This risk factor admits evidence of cases where family members are radicalized or show evidence of religious extremism.  ",
+							score: null
+						}
+					]
+				}
+			},
+			methods: {
+				back() {
+					location = './blog.html'
+				},
+				score() {
+console.log(this.tools)
+				},
+				desc(data){
+					alert(data)
+				}
+			},
+			mounted() {
+
+			},
+			created() {
+				for (i of this.tools) {
+					// console.log(i)
+				}
+			}
+		})
+	</script>
+	</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="format-detection" content="telephone=no">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<title>Hello World</title>
+		<link href="css/core.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div id="app" class="col wrapper">
+			<div class="row" style="justify-content: center;
+    flex-grow: 1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 113px;">
+				<div class="col" style="align-items: center;
+
+    /* justify-content: center */
+    justify-content: center;
+    padding-top: 10px;">
+					<img src="./img/logo2.png" alt="" width="40"/>
+					<img src="img/logoname.png" alt="" width="180" style="margin-top: 10px;"/>
+				</div>
+			</div>
+			<div class="col" style="align-items: center;
+    padding-bottom: 10px;
+    flex-grow: 1;
+    justify-content: flex-end;
+    font-size: 12px;">
+				<p class="nm" style="color: #ffffff !important;">Powered by AUN</p>
+				<p class="nm" style="color: #ffffff !important;">Version 1.2.1</p>
+			</div>
+		</div>
+		<script src="./js/vue.js"></script>
+		<!-- <script src="./js/store.js"></script> -->
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script>
+		new Vue({
+			el: '#app',
+
+			methods: {
+				setLang(lang) {
+					this.language = lang
+					localStorage.setItem('lang', lang)
+					window.location = './blog.html'
+					// store.commit('setLng')
+				}
+			},
+			created() {
+				if (localStorage.getItem('lang')) {
+					this.lang = localStorage.getItem('lang')
+					setTimeout(() => {
+						window.location = './blog.html'
+					}, 6000)
+				} else {
+					setTimeout(() => {
+						window.location = './index.html'
+					}, 3000)
+				}
+			}
+		})
+	</script>
+	</body>
+</html>

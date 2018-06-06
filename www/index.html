@@ -1,84 +1,113 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-	<meta name="format-detection" content="telephone=no">
-	<meta name="msapplication-tap-highlight" content="no">
-	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-	<link rel="stylesheet" type="text/css" href="css/index.css">
-	<title>Hello World</title>
-	<link href="css/core.css" rel="stylesheet" type="text/css">
-</head>
-
-<body>
-	<div id="app" class="col wrapper">
-		<div class="logo row">
-			<div class="col" style="align-items: center;">
-				<img src="./img/logo2.png" alt="" width="40" />
-				<img src="img/logoname.png" alt="" width="180" style="margin-top: 10px;" />
-			</div>
-		</div>
-		<div class="col main" style="flex-grow: 1;
-    padding-top: 60px;">
-			<div class="col">
-				<div>
-					<p class="nm" style="color: #ffffff !important;">Welcome To</p>
-					<h1 class="nm" style="color: #ffffff !important;">
-						<b class="bold">BELIE</b>PEDIA</h1>
+	<head>
+		<meta name="format-detection" content="telephone=no">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<title>Hello World</title>
+		<link href="css/core.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div id="app" class="col wrapper" v-cloak>
+			<div class="logo row">
+				<div class="col" style="align-items: center;">
+					<img src="./img/logo2.png" alt="" width="40"/>
+					<img src="img/logoname.png" alt="" width="180" style="margin-top: 10px;"/>
 				</div>
 			</div>
-			<div class="col" style="text-align: center;
-    margin-top: 140px;">
-				<div>
-					<h3 style="color: #ffffff !important;">Choose your language</h3>
-				</div>
-				<div class="row">
-					<div @click="setLang('english')" class="btn">English</div>
-					<div @click="setLang('hausa')" class="btn">Hausa</div>
+			<div class="main row" style="flex-grow: 1;
+    padding-top: 10px;">
+				<div id="setupLang" style="transition: all 0.5s ease-in-out;
+    min-width: 83vw;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 0px;">
+					<div class="col" data-pg-collapsed>
+						<div>
+							<p class="nm" style="color: #ffffff !important;">Welcome To</p>
+							<h1 class="nm" style="color: #ffffff !important;"> <b class="bold">BELIE</b>PEDIA</h1>
+						</div>
+					</div>
+					<div class="row" style="text-align: center;
+    align-items: center;
+    overflow: hidden;">
+						<div style="min-width: 92vw;
+    position: relative;
+    transition: all 0.5s ease-in-out;">
+							<div style="max-width: 90vw;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px;">
+								<div>
+									<h3 style="color: #ffffff !important;">Choose your language</h3>
+								</div>
+								<div class="row">
+									<div @click="more('-92vw','english')" class="btn">English</div>
+									<div @click="more('-92vw','hausa')" class="btn">Hausa</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
+			<div class="col" style="align-items: center;
+    padding-bottom: 10px;
+    font-size: 12px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;" data-pg-collapsed>
+				<p class="nm" style="color: #ffffff !important;">Powered by AUN</p>
+				<p class="nm" style="color: #ffffff !important;">Version 1.2.1</p>
+			</div>
 		</div>
-		<div class="col" style="align-items: center;
-    padding-bottom: 10px;">
-			<p class="nm" style="color: #ffffff !important;">Powered by AUN</p>
-			<p class="nm" style="color: #ffffff !important;">Version 1.2.1</p>
-		</div>
-	</div>
-	<script src="./js/vue.js"></script>
-	<script src="./js/vuex.js"></script>
-	<!-- <script src="./js/store.js"></script> -->
-	<script type="text/javascript" src="cordova.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
-	<script>
-		// const store = new Vuex.Store({
-		// 	state: {
-		// 		language: localStorage.getItem('lang')
-		// 	},
-		// 	mutations: {
-		// 		setLng(state) {
-		// 			state.language = localStorage.setItem(app.language)
-		// 		}
-		// 	},
-		// 	getters: {
-		// 		lang: state => {
-		// 			return state.language
-		// 		}
-		// 	}
-		// })
-
-		var app = new Vue({
+		<script src="./js/vue.js"></script>
+		<script src="./js/axios.min.js"></script>
+		<script>
+		new Vue({
 			el: '#app',
 			data() {
 				return {
-					language: ''
+					language: '',
+					username: null,
+					password: null,
+					message: ""
 				}
 			},
 			methods: {
 				setLang(lang) {
-					this.language = lang
-					localStorage.setItem('lang', lang)
-					window.location = './blog.html'
+					this.language = lang;
+					localStorage.setItem('lang', lang);
 					// store.commit('setLng')
+				},
+				slide(dist) {
+					var lang = document.getElementById('setupLang')
+					var login = document.getElementById('setupLogin')
+					var reg = document.getElementById('setupReg')
+
+					lang.style.marginLeft = dist
+					// login.style.left = dist
+					// reg.style.left = dist
+
+				},
+
+				more(dist, lang) {
+					this.slide(dist)
+					this.setLang(lang)
+					window.location = './login.html'
+
+				},
+				goto() {
+					window.location = './blog.html';
+				},
+
+				login() {
+					if (this.username == null || this.password == null) {
+						this.message = "Please Username/Password can't be empty"
+					} else {
+
+					}
 				}
 			},
 			created() {
@@ -89,8 +118,7 @@
 				// 	}, 2000)
 				// }
 			}
-		})
+		});
 	</script>
-</body>
-
+	</body>
 </html>

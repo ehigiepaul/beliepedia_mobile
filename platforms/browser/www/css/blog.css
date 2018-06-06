@@ -42,12 +42,15 @@ body {
     flex-grow: 1;
     flex-basis: 0px;
     overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .imgHolder img {
-    object-fit: fill;
-    height: 100%;
+    object-fit: cover;
     z-index: 1;
+    width: 100%;
+    height: 100%;
 }
 
 .single .title {
@@ -55,9 +58,10 @@ body {
     z-index: 81;
     position: absolute;
     font-family: barlowB;
-    background-color: #d82d48;
-    top: 25vh;
+    top: 20vh;
     padding: 10px;
+    background-color: #df3e58;
+    width: 40vw;
 }
 
 .single {
@@ -75,8 +79,8 @@ body {
 }
 
 .passage div {
-    min-width: 86vw;
-    margin-right: 30px;
+    min-width: 85vw;
+    margin-right: 10vw;
     position: relative;
 }
 

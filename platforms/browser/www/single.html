@@ -5,115 +5,53 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="description" content="">
 		<meta name="author" content="">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
 		<title>New page</title>
 		<link href="css/blog.css" rel="stylesheet">
 		<link href="css/core.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-		<div id="app" class="col">
+		<div id="app" class="col" v-cloak>
 			<div class="back" @click='back'>
 				<img src="img/back.png" width="42"/>
 			</div>
-			<div class="menu trans">
-				<div class="menuSide col trans">
-					<div class="i" style="font-size: 30px;
-    text-align: right;
-    color: #27a3e6 !important;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-top: 10px;" onclick="menuToggle()">close</div>
-					<div class="col" style="align-items: center;
-    flex-grow: 1;">
-						<div style="width: 100px;
-    height: 100px;
-    border-radius: 257px;
-    background-color: #4a8dca !important;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden;
-    object-fit: contain;">
-							<img src="img/logo2.png" alt="" width="40" style="align-self: center;"/>
-						</div>
-					</div>
-					<div style="color: #ffffff !important;
-    flex-grow: 9;" class="wrapper">
-						<input type="search" style="height: 30px;
-    width: 100%;" placeholder="SEARCH"/>
-						<h4>SETTING</h4>
-						<h4>SHARE</h4>
-						<h4>ABOUT US</h4>
-						<h4>LOGIN</h4>
-					</div>
-					<div class="col" style="align-items: center;
-    flex-grow: 1;">
-						<img src="img/logo2.png" alt="" width="40"/>
-						<img src="img/logoname.png" alt="" width="140"/>
-					</div>
-					<div style="color: #ffffff !important;
-    font-size: 13px;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;">
-						<p class="nm">Powered by AUN</p>
-						<p class="nm">Version 1.2.3</p>
-					</div>
-				</div>
-			</div>
-			<header class="row">
-				<div class="i" style="text-align: center;
-    flex-basis: 50px;" onclick="menuToggle()">menu</div>
-				<div style="text-align: center;
-    flex-grow: 1;">
-					<img src="img/logoname.png" width="140"/>
-				</div>
-				<div class="i" style="text-align: center;
-    flex-basis: 50px;
-    flex-grow: 0;
-    background-color: #ED8D13 !important;
-    padding-top: 10px;
-    padding-bottom: 10px;">
-					<img src="img/logo2.png" width="18"/>
-				</div>
-			</header>
+			
+			<appheader></appheader>
 			<main class="col wrapper" seamless="seamless" data-pgc-edit="main[no_content]">
 				<div class="single">
-					<h1 class="title" v-if="lang == 'english'">{{item.english.title}}</h1>
+					<h1 v-if="lang == 'english'" class="title">{{item.english.title}}</h1>
 					<div class="postImage">
 						<img :src="item.image"/>
-						<h1 class="title" v-else></h1>{{item.huasa.title}}
-					</h1>
-				</div>
-				<div class="content">
-					<div v-if="lang=='english'" v-html="item.english.content"></div>
-					<div v-else v-html="item.huasa.content"></div>
-				</div>
-				<div class="passage row close" id="passage">
-					<div class="bible" id="bSec">
-						<h2>
+						<h1 class="title" v-else>{{item.huasa.title}} </h1>
+					</div>
+					<div class="content">
+						<div v-if="lang=='english'" v-html="item.english.content"></div>
+						<div v-else v-html="item.huasa.content"></div>
+					</div>
+					<div class="passage row close" id="passage">
+						<div class="bible" id="bSec">
+							<h2>
 							Bible </h2>
-						<div v-if="lang=='english'" v-html="item.english.bible"></div>
-						<div v-else v-html="item.huasa.bible"></div>
-					</div>
-					<div class="quran" id="qSec">
-						<h2>
+							<div v-if="lang=='english'" v-html="item.english.bible"></div>
+							<div v-else v-html="item.huasa.bible"></div>
+						</div>
+						<div class="quran" id="qSec">
+							<h2>
 							Quran </h2>
-						<div v-if="lang=='english'" v-html="item.english.quran"></div>
-						<div v-else v-html="item.huasa.quran"></div>
+							<div v-if="lang=='english'" v-html="item.english.quran"></div>
+							<div v-else v-html="item.huasa.quran"></div>
+						</div>
+					</div>
+					<div class="religion row">
+						<div style="background-color: #f48e0b !important;" id="bible" type="button">BIBLE</div>
+						<div style="background-color: #d82d48 !important;" id="quran" type="button">QURAN</div>
 					</div>
 				</div>
-				<div class="religion row">
-					<div style="background-color: #f48e0b !important;" id="bible" type="button">BIBLE</div>
-					<div style="background-color: #d82d48 !important;" id="quran" type="button">QURAN</div>
-				</div>
+			</main>
 		</div>
-	</main>
-</div>
-<script src="./js/vue.js"></script>
-<script src="./js/core.js"></script>
-<script>
+		<script src="./js/vue.js"></script>
+		<script src="./js/core.js"></script>
+		<script>
 		new Vue({
 			el: '#app',
 			data() {
@@ -152,3 +90,5 @@
 			}
 		})
 	</script>
+	</body>
+</html>
