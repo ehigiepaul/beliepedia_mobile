@@ -31,13 +31,14 @@
 			</div>
 		</main>
 	</div>
-	<script src="./js/wpapi.js"></script>
+	<!-- <script src="./js/wpapi.js"></script> -->
 	<script src="./js/vue.js"></script>
 	<script src="./js/core.js"></script>
+	<script src="./js/axios.min.js"></script>
 	<script>
-		var wp = new WPAPI({
-			endpoint: 'http://beliepedia.org/wp-json'
-		});
+		// var wp = new WPAPI({
+		// 	endpoint: 'http://beliepedia.org/wp-json'
+		// });
 		new Vue({
 			el: '#blog',
 			data() {
@@ -47,30 +48,32 @@
 				}
 			},
 			created() {
-				fetch('http://beliepedia.org/wp-json/wp/v2/posts?per_page=100',{mode:'no-cors'}).then((d) => d.json()).then(d => {
-				    let arr = []
-				    for (i of d) {
 
-				        arr.push({
-				            id: i.id,
-				            image: `${i.better_featured_image.source_url}`,
-				            english: {
-				                title: `${i.title.rendered}`,
-				                content: `${i.content.rendered}`,
-				                bible: `${i.acf.bible}`,
-				                quran: `${i.acf.quran}`
-				            },
-				            huasa: {
-				                title: `${ i.acf["ha-title"] }`,
-				                content: `${ i.acf["ha-content"] }`,
-				                bible: `${i.acf["ha-bible"]}`,
-				                quran: `${i.acf["ha-quran"]}`
-				            }
-				        })
+				fetch('https://beliepedia.org/wp-json/wp/v2/posts?per_page=100').then(d => d.json()).then(d => {
+					console.log(d)
+					let arr = []
+					for (i of d) {
 
-				    }
-				    localStorage.setItem('content', JSON.stringify(arr))
-				    this.content = JSON.parse(localStorage.getItem('content'))
+						arr.push({
+							id: i.id,
+							image: `${i.better_featured_image.source_url}`,
+							english: {
+								title: `${i.title.rendered}`,
+								content: `${i.content.rendered}`,
+								bible: `${i.acf.bible}`,
+								quran: `${i.acf.quran}`
+							},
+							huasa: {
+								title: `${ i.acf["ha-title"] }`,
+								content: `${ i.acf["ha-content"] }`,
+								bible: `${i.acf["ha-bible"]}`,
+								quran: `${i.acf["ha-quran"]}`
+							}
+						})
+
+					}
+					localStorage.setItem('content', JSON.stringify(arr))
+					this.content = JSON.parse(localStorage.getItem('content'))
 				})
 
 

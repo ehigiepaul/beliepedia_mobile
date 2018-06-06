@@ -1,6 +1,38 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
   {
+    "id": "cordova-plugin-device-motion.Acceleration",
+    "file": "plugins/cordova-plugin-device-motion/www/Acceleration.js",
+    "pluginId": "cordova-plugin-device-motion",
+    "clobbers": [
+      "Acceleration"
+    ]
+  },
+  {
+    "id": "cordova-plugin-device-motion.accelerometer",
+    "file": "plugins/cordova-plugin-device-motion/www/accelerometer.js",
+    "pluginId": "cordova-plugin-device-motion",
+    "clobbers": [
+      "navigator.accelerometer"
+    ]
+  },
+  {
+    "id": "cordova-plugin-dialogs.notification",
+    "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+    "pluginId": "cordova-plugin-dialogs",
+    "merges": [
+      "navigator.notification"
+    ]
+  },
+  {
+    "id": "cordova-plugin-dialogs.notification_android",
+    "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
+    "pluginId": "cordova-plugin-dialogs",
+    "merges": [
+      "navigator.notification"
+    ]
+  },
+  {
     "id": "cordova-plugin-file.DirectoryEntry",
     "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
     "pluginId": "cordova-plugin-file",
@@ -174,22 +206,6 @@ module.exports = [
     "runs": true
   },
   {
-    "id": "cordova-plugin-device-motion.Acceleration",
-    "file": "plugins/cordova-plugin-device-motion/www/Acceleration.js",
-    "pluginId": "cordova-plugin-device-motion",
-    "clobbers": [
-      "Acceleration"
-    ]
-  },
-  {
-    "id": "cordova-plugin-device-motion.accelerometer",
-    "file": "plugins/cordova-plugin-device-motion/www/accelerometer.js",
-    "pluginId": "cordova-plugin-device-motion",
-    "clobbers": [
-      "navigator.accelerometer"
-    ]
-  },
-  {
     "id": "cordova-plugin-globalization.GlobalizationError",
     "file": "plugins/cordova-plugin-globalization/www/GlobalizationError.js",
     "pluginId": "cordova-plugin-globalization",
@@ -203,22 +219,6 @@ module.exports = [
     "pluginId": "cordova-plugin-globalization",
     "clobbers": [
       "navigator.globalization"
-    ]
-  },
-  {
-    "id": "cordova-plugin-dialogs.notification",
-    "file": "plugins/cordova-plugin-dialogs/www/notification.js",
-    "pluginId": "cordova-plugin-dialogs",
-    "merges": [
-      "navigator.notification"
-    ]
-  },
-  {
-    "id": "cordova-plugin-dialogs.notification_android",
-    "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
-    "pluginId": "cordova-plugin-dialogs",
-    "merges": [
-      "navigator.notification"
     ]
   },
   {
@@ -242,12 +242,12 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-  "cordova-plugin-file": "6.0.1",
-  "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-device-motion": "1.2.5",
-  "cordova-plugin-globalization": "1.0.9",
   "cordova-plugin-dialogs": "2.0.1",
-  "cordova-plugin-network-information": "2.0.1"
+  "cordova-plugin-file": "6.0.1",
+  "cordova-plugin-globalization": "1.0.9",
+  "cordova-plugin-network-information": "2.0.1",
+  "cordova-plugin-whitelist": "1.3.3"
 };
 // BOTTOM OF METADATA
 });

@@ -11,8 +11,8 @@
 		<link href="css/core.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-		<div id="app" class="col" v-cloak>
-			<div class="back" @click='back'>
+		<div id="app" class="col" >
+			<div class="back" @click="back">
 				<img src="img/back.png" width="42"/>
 			</div>
 			
@@ -20,9 +20,9 @@
 			<main class="col wrapper" seamless="seamless" data-pgc-edit="main[no_content]">
 				<div class="single">
 					<h1 v-if="lang == 'english'" class="title">{{item.english.title}}</h1>
+					<h1 class="title" v-else>{{item.huasa.title}} </h1>
 					<div class="postImage">
 						<img :src="item.image"/>
-						<h1 class="title" v-else>{{item.huasa.title}} </h1>
 					</div>
 					<div class="content">
 						<div v-if="lang=='english'" v-html="item.english.content"></div>

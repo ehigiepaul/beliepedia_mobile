@@ -12,6 +12,12 @@
         },
         "cordova-plugin-globalization": {
             "PACKAGE_NAME": "com.bracketcore.beliepedia"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.bracketcore.beliepedia"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.bracketcore.beliepedia"
         }
     },
     "dependent_plugins": {

@@ -175,21 +175,38 @@
 					}
 				},
 				signup() {
-					let formData = new FormData();
-					formData.append('username', this.username);
-					formData.append('password', this.password);
-					formData.append('email', this.email);
-					formData.append('first_name', this.firstName);
-					formData.append('last_Name', this.lastName);
-					fetch("https://ehigiepaul:231286Ehi@beliepedia.org/wp-json/wp/v2/users", {
-						method: "POST",
-						mode: "no-cors",
-						headers: {
-							'Content-Type': 'application/json'
-						},body:formData
-					});
 
-					window.location = './blog.html'
+					var hash = btoa('ehigiepaul' + ":" + "231286Ehi")
+					let data = JSON.stringify({
+						'username': this.username,
+						'password': this.password,
+						'email': this.email,
+						'first_name': this.firstName,
+						'last_Name': this.lastName
+					})
+
+					fetch('https://beliepedia.org/wp-json/wp/v2/users', {
+						method: 'POST',
+						headers: {
+							// 'Postman-Token': 'f4a0e6f8-b174-46ee-8bf9-d01632a7c0bf',
+							// 'Cache-Control': 'no-cache',
+							'Content-Type': 'application/json',
+							'Authorization': "Basic " + hash
+						},
+						body: data
+					}).then(d => d.json()).then(d => {
+						console.log(d)
+						localStorage.setItem('auth',btoa(this.username + ':'+ this.password))
+						alert(`Welcome ${this.username}`)
+						setTimeout(()=>{
+
+							window.location = './blog.html'
+						},3000)
+					}).catch(err => {
+						console.log(err)
+					})
+
+					// window.location = './blog.html'
 				}
 			},
 			created() {

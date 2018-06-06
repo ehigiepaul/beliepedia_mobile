@@ -69,7 +69,8 @@ Vue.component('appheader', {
 			<h4 @click='toggleSettings("t")'>SETTING</h4>
 			<h4 @click="goto('./tools.html')">RISK FACTOR TOOL</h4>
 			<h4>ABOUT US</h4>
-			<h4 v-if='!loggedIn'>LOGIN</h4>
+			<h4 @click="goto('./login.html')" v-if="!auth">LOGIN</h4>
+			<h4 @click="goto('./login.html')" v-if="auth">LOGOUT</h4>
 		</div>
 		<div class="col" style="align-items: center;
     flex-grow: 1;">
@@ -82,7 +83,7 @@ Vue.component('appheader', {
     padding-top: 10px;
     padding-bottom: 10px;">
 			<p class="nm">Powered by AUN</p>
-			<p class="nm">Version 1.2.3</p>
+			<p class="nm">Version 1.5.1</p>
 		</div>
 	</div>
 </div>
@@ -92,7 +93,7 @@ Vue.component('appheader', {
         return {
             toggle: true,
             picked: localStorage.getItem('lang'),
-            loggedIn:false
+            auth:localStorage.getItem('auth')
         }
     },
     methods: {
@@ -128,7 +129,8 @@ Vue.component('appheader', {
             } else {
 
                 localStorage.setItem('lang', this.picked)
-                settings.classList.toggle('settingClose')
+                settings.classList.toggle('settingClose');
+                window.location.reload()
             }
         },
         goto(dist){
