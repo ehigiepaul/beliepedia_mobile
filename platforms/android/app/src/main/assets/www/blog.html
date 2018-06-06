@@ -47,57 +47,59 @@
 				}
 			},
 			created() {
-				// fetch('http://beliepedia.org/wp-json/wp/v2/posts',{mode:'no-cors'}).then((d) => d.json()).then(d => {
-				//     let arr = []
-				//     for (i of d) {
+				fetch('http://beliepedia.org/wp-json/wp/v2/posts?per_page=100',{mode:'no-cors'}).then((d) => d.json()).then(d => {
+				    let arr = []
+				    for (i of d) {
 
-				//         arr.push({
-				//             id: i.id,
-				//             image: `${i.better_featured_image.source_url}`,
-				//             english: {
-				//                 title: `${i.title.rendered}`,
-				//                 content: `${i.content.rendered}`,
-				//                 bible: `${i.acf.bible}`,
-				//                 quran: `${i.acf.quran}`
-				//             },
-				//             huasa: {
-				//                 title: `${ i.acf["ha-title"] }`,
-				//                 content: `${ i.acf["ha-content"] }`,
-				//                 bible: `${i.acf["ha-bible"]}`,
-				//                 quran: `${i.acf["ha-quran"]}`
-				//             }
-				//         })
+				        arr.push({
+				            id: i.id,
+				            image: `${i.better_featured_image.source_url}`,
+				            english: {
+				                title: `${i.title.rendered}`,
+				                content: `${i.content.rendered}`,
+				                bible: `${i.acf.bible}`,
+				                quran: `${i.acf.quran}`
+				            },
+				            huasa: {
+				                title: `${ i.acf["ha-title"] }`,
+				                content: `${ i.acf["ha-content"] }`,
+				                bible: `${i.acf["ha-bible"]}`,
+				                quran: `${i.acf["ha-quran"]}`
+				            }
+				        })
 
-				//     }
-				//     localStorage.setItem('content', JSON.stringify(arr))
-				//     this.content = JSON.parse(localStorage.getItem('content'))
-				// })
-				wp.posts().then(data => {
-					let arr = []
-					for (i of data) {
-
-						arr.push({
-							id: i.id,
-							image: `${i.better_featured_image.source_url}`,
-							english: {
-								title: `${i.title.rendered}`,
-								content: `${i.content.rendered}`,
-								bible: `${i.acf.bible}`,
-								quran: `${i.acf.quran}`
-							},
-							huasa: {
-								title: `${ i.acf["ha-title"] }`,
-								content: `${ i.acf["ha-content"] }`,
-								bible: `${i.acf["ha-bible"]}`,
-								quran: `${i.acf["ha-quran"]}`
-							}
-						})
-
-					}
-					localStorage.setItem('content', JSON.stringify(arr))
-					this.content = JSON.parse(localStorage.getItem('content'))
-					console.log('done')
+				    }
+				    localStorage.setItem('content', JSON.stringify(arr))
+				    this.content = JSON.parse(localStorage.getItem('content'))
 				})
+
+
+				// wp.posts().then(data => {
+				// 	let arr = []
+				// 	for (i of data) {
+
+				// 		arr.push({
+				// 			id: i.id,
+				// 			image: `${i.better_featured_image.source_url}`,
+				// 			english: {
+				// 				title: `${i.title.rendered}`,
+				// 				content: `${i.content.rendered}`,
+				// 				bible: `${i.acf.bible}`,
+				// 				quran: `${i.acf.quran}`
+				// 			},
+				// 			huasa: {
+				// 				title: `${ i.acf["ha-title"] }`,
+				// 				content: `${ i.acf["ha-content"] }`,
+				// 				bible: `${i.acf["ha-bible"]}`,
+				// 				quran: `${i.acf["ha-quran"]}`
+				// 			}
+				// 		})
+
+				// 	}
+				// 	localStorage.setItem('content', JSON.stringify(arr))
+				// 	this.content = JSON.parse(localStorage.getItem('content'))
+				// 	console.log('done')
+				// })
 
 			},
 			methods: {
